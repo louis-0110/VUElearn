@@ -1,6 +1,6 @@
 ## 生命周期
 
-![vue生命周期图解](../../img/lifecycle.png)
+![vue生命周期图解](../img/lifecycle.png)
 
 
 
