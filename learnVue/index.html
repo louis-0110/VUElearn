@@ -5,9 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+        .active{
+            color:skyblue;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
+        <div v-text="html" :class="className"></div>
+        
         <ul>
             <li v-for='item in arr'><span>{{item.name}}</span><span>{{item.age}}</span></li>
         </ul>
@@ -17,13 +27,27 @@
     <script>
 
         const data = { 
-                arr:[{name:'xiaoming',age:18},{name:'xiaohong',age:28}]
+                arr:[{name:'xiaoming',age:18},{name:'xiaohong',age:28}],
+                html:'<h2>HTML VUE</h2>',
+                a:'active',
+                // line:'line'
             }
        const app =  new Vue({
             el:'#app',
             data,
             methods:{
 
+            },created () {
+                console.log(this.$el);
+                console.log(this.arr[0].name = 'gaoluo')
+            },beforeCreate () {
+                console.log(this.$el);
+                console.log(this.$data)
+            },
+            computed: {
+                className(){
+                    return [this.a]
+                }
             }
         })
     </script>

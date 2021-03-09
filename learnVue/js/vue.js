@@ -879,7 +879,7 @@
     def(arrayMethods, method, function mutator () {
       var args = [], len = arguments.length;
       while ( len-- ) args[ len ] = arguments[ len ];
-
+      console.log(this);
       var result = original.apply(this, args);
       var ob = this.__ob__;
       var inserted;
